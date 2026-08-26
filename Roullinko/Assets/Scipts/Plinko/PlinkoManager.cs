@@ -14,9 +14,10 @@ public class PlinkoManager : MonoBehaviour
     [Tooltip("Horizontal range around spawnPoint the ball can start from.")]
     [SerializeField] private float spawnXRange = 0.2f;
 
-    public event Action<int, float> OnPlinkoResult;
+    public event Action<int, float, float> OnPlinkoResult;
 
     private bool ballInPlay = false;
+    private float currentBet;
 
     public Transform CurrentBall { get; private set; }
 
@@ -28,10 +29,13 @@ public class PlinkoManager : MonoBehaviour
     public bool PlaceBetAndDrop(float betAmount)
     {
         if (ballInPlay) return false;
+
+        betAmount = Mathf.Clamp(betAmount, 1f, 10f);
+
         if (!GameManager.Instance.TryUsePlay()) return false;
         if (!GameManager.Instance.TrySpend(betAmount)) return false;
 
-        PlayerPrefs.SetFloat("PendingBetAmount", betAmount);
+        currentBet = betAmount;
         DropBall();
         return true;
     }
@@ -48,10 +52,13 @@ public class PlinkoManager : MonoBehaviour
     public void OnBallLanded(int slotIndex, GameObject ballObject)
     {
         float multiplier = config.GetMultiplier(slotIndex);
-        Debug.Log($"Ball landed in slot {slotIndex} -> multiplier x{multiplier}");
+        float payout = currentBet * multiplier;
 
-        GameManager.Instance.SetPendingMultiplier(multiplier);
-        OnPlinkoResult?.Invoke(slotIndex, multiplier);
+        Debug.Log($"Ball landed in slot {slotIndex} -> multiplier x{multiplier} -> bet {currentBet} pays out {payout}");
+
+        GameManager.Instance.AddCurrency(payout);
+
+        OnPlinkoResult?.Invoke(slotIndex, multiplier, payout);
 
         Destroy(ballObject);
         CurrentBall = null;

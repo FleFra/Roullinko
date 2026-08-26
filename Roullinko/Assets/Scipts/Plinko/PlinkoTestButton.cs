@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class PlinkoTestButton : MonoBehaviour
 {
-    [SerializeField] private float testBetAmount = 10f;
+    [SerializeField] private BetInputUI betInput;
+    [SerializeField] private float fallbackBetAmount = 5f;
 
     private void Update()
     {
@@ -14,7 +15,8 @@ public class PlinkoTestButton : MonoBehaviour
 
     public void OnDropButtonPressed()
     {
-        bool success = PlinkoManager.Instance.PlaceBetAndDrop(testBetAmount);
+        float betAmount = betInput != null ? betInput.CurrentBetAmount : fallbackBetAmount;
+        bool success = PlinkoManager.Instance.PlaceBetAndDrop(betAmount);
         if (!success)
         {
             Debug.Log("Drop failed — not enough currency, no plays left, or a ball is already in play.");
