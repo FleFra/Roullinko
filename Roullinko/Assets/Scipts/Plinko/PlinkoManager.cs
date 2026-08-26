@@ -63,5 +63,7 @@ public class PlinkoManager : MonoBehaviour
         Destroy(ballObject);
         CurrentBall = null;
         ballInPlay = false;
+
+        GameManager.Instance.NotifyRoundComplete();
     }
 }

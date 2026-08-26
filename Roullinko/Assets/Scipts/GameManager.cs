@@ -11,11 +11,15 @@ public class GameManager : MonoBehaviour
     [Header("Daily Plays")]
     [SerializeField] private int playsRemainingToday = 5;
 
+    private float currencyAtDayStart;
+
     public float PendingMultiplier { get; private set; } = 1f;
     public bool HasPendingMultiplier { get; private set; } = false;
 
     public event Action<float> OnCurrencyChanged;
     public event Action<int> OnPlaysRemainingChanged;
+
+    public event Action<float> OnDayEnded;
 
     private void Awake()
     {
@@ -26,10 +30,14 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        currencyAtDayStart = currency;
     }
 
     public float Currency => currency;
     public int PlaysRemainingToday => playsRemainingToday;
+
+    public float GetProfitLoss() => currency - currencyAtDayStart;
 
     public bool TrySpend(float amount)
     {
@@ -54,9 +62,18 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
+    public void NotifyRoundComplete()
+    {
+        if (playsRemainingToday == 0)
+        {
+            OnDayEnded?.Invoke(GetProfitLoss());
+        }
+    }
+
     public void ResetDailyPlays(int amount)
     {
         playsRemainingToday = amount;
+        currencyAtDayStart = currency;
         OnPlaysRemainingChanged?.Invoke(playsRemainingToday);
     }
 
