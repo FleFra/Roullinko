@@ -1,12 +1,6 @@
 using System;
 using UnityEngine;
 
-/// <summary>
-/// Drives the Plinko mini-game: takes the bet, drops the ball, and once it lands
-/// in a slot, reads the multiplier from PlinkoConfig and hands it to GameManager
-/// for use in the following Roulette round.
-/// Attach to an empty "PlinkoManager" GameObject in the Plinko scene.
-/// </summary>
 public class PlinkoManager : MonoBehaviour
 {
     public static PlinkoManager Instance { get; private set; }
@@ -20,7 +14,6 @@ public class PlinkoManager : MonoBehaviour
     [Tooltip("Horizontal range around spawnPoint the ball can start from.")]
     [SerializeField] private float spawnXRange = 0.2f;
 
-    /// <summary>Fired when a ball lands: (slotIndex, multiplier).</summary>
     public event Action<int, float> OnPlinkoResult;
 
     private bool ballInPlay = false;
@@ -30,11 +23,6 @@ public class PlinkoManager : MonoBehaviour
         Instance = this;
     }
 
-    /// <summary>
-    /// Call this from your bet UI. Deducts the bet, then drops a ball.
-    /// This bet amount is the one that will actually apply to the *next* game (Roulette),
-    /// per the Roullinko design — Plinko here is just deciding the multiplier.
-    /// </summary>
     public bool PlaceBetAndDrop(float betAmount)
     {
         if (ballInPlay) return false;
@@ -55,7 +43,6 @@ public class PlinkoManager : MonoBehaviour
         Instantiate(ballPrefab, spawnPos, Quaternion.identity);
     }
 
-    /// <summary>Called by PlinkoSlot when a ball triggers it.</summary>
     public void OnBallLanded(int slotIndex, GameObject ballObject)
     {
         float multiplier = config.GetMultiplier(slotIndex);
