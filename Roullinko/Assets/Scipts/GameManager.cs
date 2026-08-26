@@ -1,11 +1,6 @@
 using System;
 using UnityEngine;
 
-/// <summary>
-/// Central hub for currency, daily play count, and the multiplier
-/// handed off from Plinko to the next Roulette round.
-/// Attach this to a single persistent GameObject (e.g. "GameManager") in your first scene.
-/// </summary>
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
@@ -16,7 +11,6 @@ public class GameManager : MonoBehaviour
     [Header("Daily Plays")]
     [SerializeField] private int playsRemainingToday = 5;
 
-    // The multiplier Plinko produced, waiting to be applied to the Roulette bet.
     public float PendingMultiplier { get; private set; } = 1f;
     public bool HasPendingMultiplier { get; private set; } = false;
 
@@ -66,14 +60,12 @@ public class GameManager : MonoBehaviour
         OnPlaysRemainingChanged?.Invoke(playsRemainingToday);
     }
 
-    /// <summary>Called by PlinkoManager once a ball lands in a slot.</summary>
     public void SetPendingMultiplier(float multiplier)
     {
         PendingMultiplier = multiplier;
         HasPendingMultiplier = true;
     }
 
-    /// <summary>Called by the Roulette flow once it has consumed the multiplier.</summary>
     public void ClearPendingMultiplier()
     {
         PendingMultiplier = 1f;

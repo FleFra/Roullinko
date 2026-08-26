@@ -1,11 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Data asset defining the multiplier for each Plinko slot.
-/// Right-click in Project window -> Create -> Roullinko -> Plinko Config.
-/// Kept as mutable runtime data (not constants) so upgrades like
-/// "increase all Plinko multipliers by 1" can modify it directly.
-/// </summary>
 [CreateAssetMenu(fileName = "PlinkoConfig", menuName = "Roullinko/Plinko Config")]
 public class PlinkoConfig : ScriptableObject
 {
@@ -27,7 +21,6 @@ public class PlinkoConfig : ScriptableObject
         return slotMultipliers[slotIndex];
     }
 
-    /// <summary>Upgrade hook: add a flat bonus to every slot's multiplier.</summary>
     public void AddFlatBonusToAllSlots(float bonus)
     {
         for (int i = 0; i < slotMultipliers.Length; i++)
@@ -36,7 +29,6 @@ public class PlinkoConfig : ScriptableObject
         }
     }
 
-    /// <summary>Upgrade hook: scale every slot's multiplier (e.g. 1.1 for +10%).</summary>
     public void ScaleAllSlots(float factor)
     {
         for (int i = 0; i < slotMultipliers.Length; i++)
