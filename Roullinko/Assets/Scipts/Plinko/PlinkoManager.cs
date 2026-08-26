@@ -18,6 +18,8 @@ public class PlinkoManager : MonoBehaviour
 
     private bool ballInPlay = false;
 
+    public Transform CurrentBall { get; private set; }
+
     private void Awake()
     {
         Instance = this;
@@ -29,8 +31,7 @@ public class PlinkoManager : MonoBehaviour
         if (!GameManager.Instance.TryUsePlay()) return false;
         if (!GameManager.Instance.TrySpend(betAmount)) return false;
 
-        // Remember the bet so the Roulette scene can apply the multiplier to it.
-        PlayerPrefs.SetFloat("PendingBetAmount", betAmount); // swap for a proper data-passing system later
+        PlayerPrefs.SetFloat("PendingBetAmount", betAmount);
         DropBall();
         return true;
     }
@@ -40,17 +41,20 @@ public class PlinkoManager : MonoBehaviour
         ballInPlay = true;
         float xOffset = UnityEngine.Random.Range(-spawnXRange, spawnXRange);
         Vector3 spawnPos = spawnPoint.position + new Vector3(xOffset, 0f, 0f);
-        Instantiate(ballPrefab, spawnPos, Quaternion.identity);
+        GameObject ball = Instantiate(ballPrefab, spawnPos, Quaternion.identity);
+        CurrentBall = ball.transform;
     }
 
     public void OnBallLanded(int slotIndex, GameObject ballObject)
     {
         float multiplier = config.GetMultiplier(slotIndex);
+        Debug.Log($"Ball landed in slot {slotIndex} -> multiplier x{multiplier}");
 
         GameManager.Instance.SetPendingMultiplier(multiplier);
         OnPlinkoResult?.Invoke(slotIndex, multiplier);
 
         Destroy(ballObject);
+        CurrentBall = null;
         ballInPlay = false;
     }
 }
