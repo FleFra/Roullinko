@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Daily Plays")]
     [SerializeField] private int playsRemainingToday = 5;
+    [SerializeField] private int maxPlaysPerDay = 5;
 
     private float currencyAtDayStart;
 
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public event Action<float> OnCurrencyChanged;
     public event Action<int> OnPlaysRemainingChanged;
+    public event Action<int> OnMaxPlaysChanged;
 
     public event Action<float> OnDayEnded;
 
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     public float Currency => currency;
     public int PlaysRemainingToday => playsRemainingToday;
+    public int MaxPlaysPerDay => maxPlaysPerDay;
 
     public float GetProfitLoss() => currency - currencyAtDayStart;
 
@@ -70,11 +73,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ResetDailyPlays()
+    {
+        playsRemainingToday = maxPlaysPerDay;
+        currencyAtDayStart = currency;
+        OnPlaysRemainingChanged?.Invoke(playsRemainingToday);
+    }
+
     public void ResetDailyPlays(int amount)
     {
         playsRemainingToday = amount;
         currencyAtDayStart = currency;
         OnPlaysRemainingChanged?.Invoke(playsRemainingToday);
+    }
+
+    public void IncreaseMaxPlays(int amount)
+    {
+        if (amount <= 0) return;
+        maxPlaysPerDay += amount;
+        OnMaxPlaysChanged?.Invoke(maxPlaysPerDay);
     }
 
     public void SetPendingMultiplier(float multiplier)

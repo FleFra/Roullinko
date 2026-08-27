@@ -1,13 +1,9 @@
 using UnityEngine;
 using TMPro;
 
-/// <summary>
-/// Shows an end-of-day summary panel with profit/loss when plays run out.
-/// Attach to a UI Panel GameObject (start it inactive in the Inspector).
-/// </summary>
 public class DayEndSummaryUI : MonoBehaviour
 {
-    [SerializeField] private GameObject panelRoot;      // the panel to show/hide (can be this.gameObject)
+    [SerializeField] private GameObject panelRoot;
     [SerializeField] private TextMeshProUGUI resultText;
     [SerializeField] private Color profitColor = Color.green;
     [SerializeField] private Color lossColor = Color.red;
@@ -40,12 +36,11 @@ public class DayEndSummaryUI : MonoBehaviour
         resultText.color = isProfit ? profitColor : lossColor;
     }
 
-    /// <summary>Call from a "Continue" button to close the panel and start a new day.</summary>
-    public void OnContinuePressed(int newPlaysAmount)
+    public void OnContinuePressed()
     {
         if (panelRoot != null)
             panelRoot.SetActive(false);
 
-        GameManager.Instance.ResetDailyPlays(newPlaysAmount);
+        GameManager.Instance.ResetDailyPlays();
     }
 }
