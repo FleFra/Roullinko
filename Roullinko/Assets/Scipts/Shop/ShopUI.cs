@@ -1,29 +1,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Spawns one ShopItemUI per available upgrade under a scroll view content transform.
-/// Attach to a "ShopUI" GameObject.
-/// </summary>
 public class ShopUI : MonoBehaviour
 {
-    [SerializeField] private GameObject shopItemPrefab; // prefab with ShopItemUI on it
-    [SerializeField] private Transform contentParent;   // the Content object of a Scroll View
+    [SerializeField] private GameObject panelRoot;      
+    [SerializeField] private GameObject shopItemPrefab; 
+    [SerializeField] private Transform contentParent;  
 
     private readonly List<ShopItemUI> spawnedItems = new List<ShopItemUI>();
+    private bool listBuilt = false;
 
     private void Start()
     {
-        BuildShopList();
-
         if (GameManager.Instance != null)
             GameManager.Instance.OnCurrencyChanged += HandleCurrencyChanged;
+
+        if (panelRoot != null)
+            panelRoot.SetActive(false);
     }
 
     private void OnDestroy()
     {
         if (GameManager.Instance != null)
             GameManager.Instance.OnCurrencyChanged -= HandleCurrencyChanged;
+    }
+
+    public void OpenShop()
+    {
+        if (!listBuilt)
+        {
+            BuildShopList();
+            listBuilt = true;
+        }
+        else
+        {
+            RefreshAllItems();
+        }
+
+        if (panelRoot != null)
+            panelRoot.SetActive(true);
+    }
+
+    public void CloseShop()
+    {
+        if (panelRoot != null)
+            panelRoot.SetActive(false);
     }
 
     private void BuildShopList()
@@ -37,8 +58,12 @@ public class ShopUI : MonoBehaviour
         }
     }
 
-    // Whenever currency changes, refresh every item's buy button (afford check may change).
     private void HandleCurrencyChanged(float newCurrency)
+    {
+        RefreshAllItems();
+    }
+
+    private void RefreshAllItems()
     {
         foreach (ShopItemUI item in spawnedItems)
         {
