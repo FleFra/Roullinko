@@ -1,20 +1,13 @@
 using UnityEngine;
 
-/// <summary>
-/// The type of effect an upgrade applies. Add new types here as you build more mechanics
-/// (e.g. RouletteExtraGreen once the Roulette wheel config exists).
-/// </summary>
 public enum UpgradeEffectType
 {
     PlinkoMultiplierFlatBonus,  // adds `value` to every Plinko slot's multiplier
     PlinkoMultiplierScale,      // multiplies every Plinko slot's multiplier by `value`
     RouletteExtraGreenSpace,    // placeholder until Roulette exists — currently just tracked, not applied
+    IncreaseDailyPlays,         // permanently adds `value` (rounded) plays per day
 }
 
-/// <summary>
-/// Data asset for a single shop upgrade.
-/// Right-click in Project window -> Create -> Roullinko -> Upgrade Data.
-/// </summary>
 [CreateAssetMenu(fileName = "NewUpgrade", menuName = "Roullinko/Upgrade Data")]
 public class UpgradeData : ScriptableObject
 {
@@ -29,7 +22,6 @@ public class UpgradeData : ScriptableObject
     public bool repeatable = true;
     public float costIncreasePerPurchase = 25f;
 
-    // Runtime-only, not saved to the asset file — tracks purchases during play.
     [HideInInspector] public int timesPurchased = 0;
 
     public float CurrentCost => cost + (timesPurchased * costIncreasePerPurchase);

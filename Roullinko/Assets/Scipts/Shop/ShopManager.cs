@@ -11,7 +11,7 @@ public class ShopManager : MonoBehaviour
         {
             if (_instance == null)
             {
-                _instance = FindAnyObjectByType<ShopManager>();
+                _instance = FindObjectOfType<ShopManager>();
                 if (_instance == null)
                 {
                     Debug.LogError("[ShopManager] No ShopManager found in the scene at all! " +
@@ -72,6 +72,10 @@ public class ShopManager : MonoBehaviour
                 PendingExtraGreenSpaces += Mathf.RoundToInt(upgrade.value);
                 Debug.Log($"[ShopManager] Extra green space purchased — total pending: {PendingExtraGreenSpaces}. " +
                           "Apply this to the Roulette wheel config once it's built.");
+                break;
+
+            case UpgradeEffectType.IncreaseDailyPlays:
+                GameManager.Instance.IncreaseMaxPlays(Mathf.RoundToInt(upgrade.value));
                 break;
         }
     }
