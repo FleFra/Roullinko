@@ -8861,6 +8861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   currency: 100
   playsRemainingToday: 5
+  maxPlaysPerDay: 5
 --- !u!4 &641640986
 Transform:
   m_ObjectHideFlags: 0
