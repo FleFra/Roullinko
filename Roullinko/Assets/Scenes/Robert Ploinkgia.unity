@@ -545,7 +545,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (45)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1065,7 +1066,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (131)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1714,7 +1716,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (301)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2237,7 +2240,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2294,7 +2298,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (66)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2599,7 +2604,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (193)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3313,7 +3319,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (82)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3513,7 +3520,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (248)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3575,7 +3583,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (127)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6619,7 +6628,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (241)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7642,7 +7652,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (185)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -8276,7 +8287,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (137)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -8617,7 +8629,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (187)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -8977,7 +8990,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (194)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -9073,7 +9087,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f56c1db40df28a42825b66efa2d69bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PegManager
-  specialPegCount: 50
+  startingPegCount: 10
+  generationRadius: 1.5
+  generationChance: 25.1
 --- !u!4 &659520256
 Transform:
   m_ObjectHideFlags: 0
@@ -9141,7 +9157,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (59)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -12027,7 +12044,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (294)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -12542,7 +12560,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (43)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -12964,7 +12983,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (239)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -13591,7 +13611,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (58)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -14708,7 +14729,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (243)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15733,7 +15755,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15924,7 +15947,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (55)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -16043,7 +16067,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (80)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -16105,7 +16130,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (192)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -16167,7 +16193,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (250)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -16958,7 +16985,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (81)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -17077,7 +17105,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (44)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -18247,7 +18276,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (302)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -18428,7 +18458,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (75)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -18614,7 +18645,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (249)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -20614,7 +20646,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a0cea8ea2d8024484e40aeafebcd0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlinkoTestButton
-  testBetAmount: 10
+  betInput: {fileID: 0}
+  fallbackBetAmount: 5
 --- !u!1001 &1596648165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21333,7 +21366,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (183)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -22200,7 +22234,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (71)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -22215,6 +22250,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 253289780587115386, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
   m_PrefabInstance: {fileID: 1342649259070249686}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1679260166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1679260168}
+  - component: {fileID: 1679260167}
+  m_Layer: 0
+  m_Name: PortalPegManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1679260167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679260166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4eff45034651524a86e4e6d86f7c01f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PortalPegManager
+  portalPegCount: 4
+--- !u!4 &1679260168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679260166}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.92009, y: 28.03327, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1679605092
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22267,7 +22347,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (138)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -22329,7 +22410,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (57)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -22582,7 +22664,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (136)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -22958,7 +23041,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (296)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -24363,7 +24447,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (129)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -27134,7 +27219,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (73)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -27268,7 +27354,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlinkoPeg (53)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6498361704342983809, guid: 7834842dd93aef448bcf9882f28344f6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -27763,3 +27850,4 @@ SceneRoots:
   - {fileID: 1357637809}
   - {fileID: 128940175}
   - {fileID: 659520256}
+  - {fileID: 1679260168}

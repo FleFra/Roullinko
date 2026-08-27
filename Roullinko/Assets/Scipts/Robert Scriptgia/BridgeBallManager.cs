@@ -1,18 +1,37 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class BridgeBallManager : MonoBehaviour
 {
+    [Header("Green Peg Bridges")]
     [SerializeField] private float bridgeRadius = 3f;
     [SerializeField] private GameObject bridgePrefab;
 
+    private PortalPegManager portalPegManager;
+
     private HashSet<GameObject> checkedPegs = new HashSet<GameObject>();
+
+    private bool portalCooldown = false;
+
+    private void Start()
+    {
+        portalPegManager = FindObjectOfType<PortalPegManager>();
+
+        if (portalPegManager == null)
+        {
+            Debug.LogWarning("No PortalPegManager found in the scene!");
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject peg = collision.gameObject;
 
-        if (!peg.CompareTag("Peg"))
+        // Make sure this is a Plinko peg
+        PlinkoPeg plinkoPeg = peg.GetComponent<PlinkoPeg>();
+
+        if (plinkoPeg == null)
             return;
 
         Renderer renderer = peg.GetComponent<Renderer>();
@@ -20,7 +39,24 @@ public class BridgeBallManager : MonoBehaviour
         if (renderer == null)
             return;
 
-        // Check if the peg is green
+        // =========================
+        // PURPLE PORTAL PEG
+        // =========================
+
+        if (renderer.material.color == Color.magenta)
+        {
+            if (!portalCooldown)
+            {
+                TeleportToRandomPortal(peg);
+            }
+
+            return;
+        }
+
+        // =========================
+        // GREEN SPECIAL PEG
+        // =========================
+
         if (renderer.material.color != Color.green)
             return;
 
@@ -36,12 +72,14 @@ public class BridgeBallManager : MonoBehaviour
 
         checkedPegs.Add(peg);
 
-        GameObject[] allPegs = GameObject.FindGameObjectsWithTag("Peg");
+        PlinkoPeg[] allPegs = FindObjectsOfType<PlinkoPeg>();
 
         List<GameObject> nearbyGreenPegs = new List<GameObject>();
 
-        foreach (GameObject otherPeg in allPegs)
+        foreach (PlinkoPeg otherPegComponent in allPegs)
         {
+            GameObject otherPeg = otherPegComponent.gameObject;
+
             if (otherPeg == peg)
                 continue;
 
@@ -51,6 +89,10 @@ public class BridgeBallManager : MonoBehaviour
                 continue;
 
             if (renderer.material.color != Color.green)
+                continue;
+
+            // Only connect to pegs below the current peg
+            if (otherPeg.transform.position.y >= peg.transform.position.y)
                 continue;
 
             float distance = Vector2.Distance(
@@ -64,19 +106,14 @@ public class BridgeBallManager : MonoBehaviour
             }
         }
 
-        Debug.Log($"Green pegs near {peg.name}: {nearbyGreenPegs.Count}");
+        Debug.Log(
+            $"Green pegs below {peg.name} within radius: {nearbyGreenPegs.Count}"
+        );
 
-        // No nearby green pegs
-        if (nearbyGreenPegs.Count == 0)
-        {
-            Destroy(peg);
-            return;
-        }
-
-        // Create bridges and continue the chain
         foreach (GameObject nearbyPeg in nearbyGreenPegs)
         {
             CreateBridge(peg, nearbyPeg);
+
             CheckPeg(nearbyPeg);
         }
     }
@@ -111,5 +148,59 @@ public class BridgeBallManager : MonoBehaviour
             0f,
             angle
         );
+    }
+
+    private void TeleportToRandomPortal(GameObject currentPeg)
+    {
+        if (portalPegManager == null)
+        {
+            Debug.LogWarning("No PortalPegManager found!");
+            return;
+        }
+
+        PlinkoPeg currentPortal = currentPeg.GetComponent<PlinkoPeg>();
+
+        if (currentPortal == null)
+            return;
+
+        PlinkoPeg destination = portalPegManager.GetRandomPortal(
+            currentPortal
+        );
+
+        if (destination == null)
+            return;
+
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        Vector2 currentVelocity = Vector2.zero;
+
+        if (rb != null)
+        {
+            currentVelocity = rb.linearVelocity;
+        }
+
+        // Teleport
+        transform.position = destination.transform.position;
+
+        // Keep velocity
+        if (rb != null)
+        {
+            rb.linearVelocity = currentVelocity;
+        }
+
+        StartCoroutine(PortalCooldown());
+
+        Debug.Log(
+            $"Teleported from {currentPortal.name} to {destination.name}"
+        );
+    }
+
+    private IEnumerator PortalCooldown()
+    {
+        portalCooldown = true;
+
+        yield return new WaitForSeconds(0.15f);
+
+        portalCooldown = false;
     }
 }

@@ -1,33 +1,109 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PegManager : MonoBehaviour
 {
-    [SerializeField] private int specialPegCount = 10;
+    [Header("Starting Pegs")]
+    [SerializeField] private int startingPegCount = 10;
+
+    [Header("Generation")]
+    [SerializeField] private float generationRadius = 3f;
+    [SerializeField][Range(0f, 100f)] private float generationChance = 35f;
+
+    private List<PlinkoPeg> allPegs = new List<PlinkoPeg>();
+    private List<PlinkoPeg> greenPegs = new List<PlinkoPeg>();
+    private HashSet<PlinkoPeg> checkedPegs = new HashSet<PlinkoPeg>();
 
     private void Start()
     {
-        GameObject[] pegs = GameObject.FindGameObjectsWithTag("Peg");
+        FindPegs();
+        CreateStartingPegs();
+        GenerateGreenPegs();
+    }
 
-        // Make sure we don't try to select more pegs than exist
-        specialPegCount = Mathf.Min(specialPegCount, pegs.Length);
+    private void FindPegs()
+    {
+        PlinkoPeg[] pegs = FindObjectsOfType<PlinkoPeg>();
 
-        // Pick random pegs
-        for (int i = 0; i < specialPegCount; i++)
+        allPegs.AddRange(pegs);
+
+        Debug.Log($"Found {allPegs.Count} pegs.");
+    }
+
+    private void CreateStartingPegs()
+    {
+        int amount = Mathf.Min(startingPegCount, allPegs.Count);
+
+        for (int i = 0; i < amount; i++)
         {
-            int randomIndex = Random.Range(0, pegs.Length);
+            int randomIndex = Random.Range(0, allPegs.Count);
 
-            GameObject peg = pegs[randomIndex];
+            PlinkoPeg peg = allPegs[randomIndex];
 
-            Renderer renderer = peg.GetComponent<Renderer>();
+            MakeGreen(peg);
 
-            if (renderer != null)
+            // Remove from available starting pegs
+            allPegs.RemoveAt(randomIndex);
+        }
+    }
+
+    private void GenerateGreenPegs()
+    {
+        int currentIndex = 0;
+
+        while (currentIndex < greenPegs.Count)
+        {
+            PlinkoPeg currentPeg = greenPegs[currentIndex];
+
+            if (!checkedPegs.Contains(currentPeg))
             {
-                renderer.material.color = Color.green;
+                CheckForNearbyPegs(currentPeg);
+                checkedPegs.Add(currentPeg);
             }
 
-            // Remove the selected peg from the pool
-            pegs[randomIndex] = pegs[pegs.Length - 1];
-            System.Array.Resize(ref pegs, pegs.Length - 1);
+            currentIndex++;
         }
+
+        Debug.Log($"Generated {greenPegs.Count} green pegs.");
+    }
+
+    private void CheckForNearbyPegs(PlinkoPeg currentPeg)
+    {
+        foreach (PlinkoPeg otherPeg in allPegs)
+        {
+            if (otherPeg == null)
+                continue;
+
+            float distance = Vector2.Distance(
+                currentPeg.transform.position,
+                otherPeg.transform.position
+            );
+
+            if (distance > generationRadius)
+                continue;
+
+            // Roll the chance
+            float roll = Random.Range(0f, 100f);
+
+            if (roll <= generationChance)
+            {
+                MakeGreen(otherPeg);
+            }
+        }
+    }
+
+    private void MakeGreen(PlinkoPeg peg)
+    {
+        if (greenPegs.Contains(peg))
+            return;
+
+        Renderer renderer = peg.GetComponent<Renderer>();
+
+        if (renderer == null)
+            return;
+
+        renderer.material.color = Color.green;
+
+        greenPegs.Add(peg);
     }
 }
