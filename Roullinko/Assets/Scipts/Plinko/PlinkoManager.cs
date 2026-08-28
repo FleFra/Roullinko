@@ -66,4 +66,21 @@ public class PlinkoManager : MonoBehaviour
 
         GameManager.Instance.NotifyRoundComplete();
     }
+
+    public void ForceResetBall(bool refundBet = true)
+    {
+        if (CurrentBall != null)
+        {
+            Destroy(CurrentBall.gameObject);
+        }
+
+        if (refundBet && ballInPlay)
+        {
+            GameManager.Instance.AddCurrency(currentBet);
+            GameManager.Instance.RefundPlay();
+        }
+
+        CurrentBall = null;
+        ballInPlay = false;
+    }
 }

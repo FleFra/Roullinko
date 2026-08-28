@@ -94,6 +94,12 @@ public class GameManager : MonoBehaviour
         OnMaxPlaysChanged?.Invoke(maxPlaysPerDay);
     }
 
+    public void RefundPlay()
+    {
+        playsRemainingToday++;
+        OnPlaysRemainingChanged?.Invoke(playsRemainingToday);
+    }
+
     public void SetPendingMultiplier(float multiplier)
     {
         PendingMultiplier = multiplier;

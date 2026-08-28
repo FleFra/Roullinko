@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Plays
   description: Increase the amount of daily plays by 1
-  cost: 1
+  cost: 10
   effectType: 0
-  value: 0.1
+  value: 1
   repeatable: 1
   costIncreasePerPurchase: 50
-  timesPurchased: 0
+  timesPurchased: 1
